@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
-@AllArgsConstructor @NoArgsConstructor
-public class UpdateUserRequest {
-    private String username;
-    private String email;
+@NoArgsConstructor @AllArgsConstructor
+public class UpdateReviewRequest {
+    private String body;
+    private int rating;
 }
