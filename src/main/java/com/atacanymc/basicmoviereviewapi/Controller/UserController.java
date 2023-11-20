@@ -4,11 +4,10 @@ package com.atacanymc.basicmoviereviewapi.Controller;
 import com.atacanymc.basicmoviereviewapi.DTO.Request.CreateUserRequest;
 import com.atacanymc.basicmoviereviewapi.DTO.Request.UpdateUserRequest;
 import com.atacanymc.basicmoviereviewapi.DTO.UserDto;
-import com.atacanymc.basicmoviereviewapi.Model.User;
 import com.atacanymc.basicmoviereviewapi.Service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.atacanymc.basicmoviereviewapi.Service.IUserService;
+import com.atacanymc.basicmoviereviewapi.Service.Interface.IUserService;
 
 import java.util.List;
 
@@ -49,6 +48,11 @@ public class UserController {
     @PatchMapping("/{id}/change-status")
     public ResponseEntity<UserDto> changeUserStatus(@PathVariable String id, @RequestParam(required = true) int status) {
         return ResponseEntity.ok(userService.changeUserStatus(id, status));
+    }
+
+    @PatchMapping("/{id}/change-role")
+    public ResponseEntity<UserDto> changeUserRole(@PathVariable String id, @RequestParam(required = true) int role) {
+        return ResponseEntity.ok(userService.changeUserRole(id, role));
     }
 
 }

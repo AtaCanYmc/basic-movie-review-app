@@ -1,4 +1,4 @@
-package com.atacanymc.basicmoviereviewapi.Service;
+package com.atacanymc.basicmoviereviewapi.Service.Interface;
 
 import com.atacanymc.basicmoviereviewapi.DTO.Request.CreateReviewRequest;
 import com.atacanymc.basicmoviereviewapi.DTO.Request.UpdateReviewRequest;

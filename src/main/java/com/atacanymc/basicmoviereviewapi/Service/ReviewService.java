@@ -5,19 +5,15 @@ import com.atacanymc.basicmoviereviewapi.DTO.Request.CreateReviewRequest;
 import com.atacanymc.basicmoviereviewapi.DTO.Request.UpdateReviewRequest;
 import com.atacanymc.basicmoviereviewapi.DTO.ReviewDto;
 import com.atacanymc.basicmoviereviewapi.Exception.ReviewNotFoundException;
-import com.atacanymc.basicmoviereviewapi.Model.Movie;
 import com.atacanymc.basicmoviereviewapi.Model.Review;
-import com.atacanymc.basicmoviereviewapi.Model.User;
 import com.atacanymc.basicmoviereviewapi.Repository.ReviewRepository;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Update;
+import com.atacanymc.basicmoviereviewapi.Service.Interface.IReviewService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ReviewService implements IReviewService{
+public class ReviewService implements IReviewService {
 
     final private ReviewRepository reviewRepository;
     final private ReviewDtoConverter reviewDtoConverter;

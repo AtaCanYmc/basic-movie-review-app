@@ -4,18 +4,19 @@ import com.atacanymc.basicmoviereviewapi.DTO.Converter.MovieDtoConverter;
 import com.atacanymc.basicmoviereviewapi.DTO.MovieDto;
 import com.atacanymc.basicmoviereviewapi.DTO.Request.CreateMovieRequest;
 import com.atacanymc.basicmoviereviewapi.DTO.Request.UpdateMovieRequest;
-import com.atacanymc.basicmoviereviewapi.Exception.BadRequestException;
+import com.atacanymc.basicmoviereviewapi.Exception.InvalidDateException;
 import com.atacanymc.basicmoviereviewapi.Exception.MovieNotFoundException;
 import com.atacanymc.basicmoviereviewapi.Model.Movie;
 import com.atacanymc.basicmoviereviewapi.Model.Review;
 import com.atacanymc.basicmoviereviewapi.Repository.MovieRepository;
+import com.atacanymc.basicmoviereviewapi.Service.Interface.IMovieService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class MovieService implements IMovieService{
+public class MovieService implements IMovieService {
 
     private final MovieRepository movieRepository;
     private final MovieDtoConverter movieDtoConverter;
@@ -48,7 +49,7 @@ public class MovieService implements IMovieService{
             localDate = LocalDate.parse(date);
             return localDate;
         } catch (Exception e) {
-            throw new BadRequestException("Invalid date format: " + date);
+            throw new InvalidDateException("Invalid date format: " + date);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.atacanymc.basicmoviereviewapi.Model;
 
+import com.atacanymc.basicmoviereviewapi.Enum.UserRole;
 import com.atacanymc.basicmoviereviewapi.Enum.UserStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -27,12 +28,14 @@ public class User extends BaseEntity{
     private UserStatus status;
     @DocumentReference
     private List<Review> reviews;
+    private UserRole role;
 
-    public User(String username, String password, String email) {
+    public User(String username, String password, String email, UserRole role) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.status = UserStatus.ACTIVE;
+        this.role = role;
         this.setCreatedDate(LocalDateTime.now());
         this.setUpdatedDate(LocalDateTime.now());
     }
